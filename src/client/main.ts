@@ -1,8 +1,27 @@
 import { createPinia } from "pinia";
-import router from "./router/index.ts";
 import { createApp } from "vue";
-
-import "./styles/main.sass";
+import router from "./core/router/index.ts";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+import Toast, { PluginOptions } from "vue-toastification";
+// Import the CSS or use your own!
+import "vue-toastification/dist/index.css";
+
+const options: PluginOptions = {
+	// You can set your default options here
+};
+
+import "./core/styles/vendor/tailwind.css";
+import "./core/styles/main.sass";
+
+// import 'tippy.js/themes/material.css' // optional for styling
+
+const app = createApp(App);
+
+// Register router, pinia, and plugins
+app.use(router);
+app.use(createPinia());
+app.use(Toast, options);
+
+// Mount the app
+app.mount("#app");

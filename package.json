@@ -16,7 +16,7 @@
     "animate.css": "^4.1.1",
     "body-parser": "^1.20.3",
     "core-js": "^3.47.0",
-    "dotenv": "^8.6.0",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-async-handler": "^1.2.0",
     "perfect-scrollbar": "^1.5.6",
@@ -32,7 +32,8 @@
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^4.6.3",
     "vue-tour": "^2.0.0",
-    "vue3-perfect-scrollbar": "^2.0.0"
+    "vue3-perfect-scrollbar": "^2.0.0",
+    "vue3-spinners": "^1.3.3"
   },
   "devDependencies": {
     "@remixicon/vue": "^4.7.0",
@@ -119,6 +120,7 @@
     "vue-pug-plugin": "^2.0.4",
     "vue-router": "^4.6.3",
     "vue-tippy": "^6.7.1",
+    "vue-toastification": "2.0.0-rc.5",
     "vue-tour": "^2.0.0",
     "vue-tsc": "^2.2.12",
     "vue3-perfect-scrollbar": "^2.0.0",

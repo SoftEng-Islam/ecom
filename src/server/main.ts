@@ -1,31 +1,18 @@
-import fs from "fs";
-import path from "path";
-import dotenv from "dotenv";
-dotenv.config();
-
-import { connectDB } from "./connection/dbConnection.ts";
-connectDB();
-
 import express from "express";
 import ViteExpress from "vite-express";
+import dotenv from "dotenv";
 
-import helloRouter from "./routes/helloRoute.ts";
-import contactRouter from "./routes/contactRoute.ts";
-import { errorHandler } from "./middleware/errorHandler.ts";
-import { connect } from "http2";
+// Get the Port from .env file
+dotenv.config();
+const port: string | number = process.env.PORT || 3000;
 
-// Import dotenv
-// import dotenv from "dotenv";
-// dotenv.config({ path: "../../.env" });
+// The MongoDB Connection
+import { connectDB } from "./connection/index.ts";
+connectDB();
 
-const port = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 
-app.use("/", helloRouter);
-app.use("/api/contacts", contactRouter);
-app.use(errorHandler);
-
-ViteExpress.listen(app, port, () =>
+ViteExpress.listen(app, port as number, () =>
 	console.log(`Server is listening on port http://localhost:${port}...`),
 );

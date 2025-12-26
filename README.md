@@ -64,7 +64,7 @@
 
 1. **Start MongoDB**
    ```bash
-   mkdir -p ./mongodb-data
+   mkdir -p ./mongodb-data && mkdir -p ./mongodb-socket
    mongod --dbpath ./mongodb-data --port 27017 --unixSocketPrefix ./mongodb-socket
    ```
 

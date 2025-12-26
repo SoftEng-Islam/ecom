@@ -2,9 +2,10 @@
 // import path from "path";
 // import dotenv from "dotenv";
 // dotenv.config();
+import { connect } from "http2";
 
-import { connectDB } from "./connection/dbConnection.ts";
-connectDB();
+// import { connectDB } from "./connection/dbConnection.ts";
+// connectDB();
 
 import express from "express";
 import ViteExpress from "vite-express";
@@ -13,7 +14,6 @@ import helloRouter from "./routes/helloRoute.ts";
 
 import contactRouter from "./routes/contactRoute.ts";
 import { errorHandler } from "./middleware/errorHandler.ts";
-import { connect } from "http2";
 
 // Import dotenv
 // import dotenv from "dotenv";

@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{baseUrl}}/contacts?
+  url: {{baseUrl}}/todos
   body: json
   auth: inherit
 }
@@ -16,9 +16,11 @@ headers {
 
 body:json {
   {
-    "name": "Islam7",
-    "email":"islam2@gmail.com",
-    "phone": "555-555-5555"
+    "title": "Islam7",
+    "description":"islam2@gmail.com",
+    "priority": "medium",
+    "completed": false,
+    "dueDate": "2026" 
   }
 }
 

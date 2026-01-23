@@ -6,7 +6,7 @@
 aside(class="hidden lg:flex flex-col w-64 min-h-full bg-white/10 backdrop-blur-md border-r border-white/10 shadow-xl rounded-2xl p-6 gap-8 mt-6 sticky top-28")
 	//- User Profile (placeholder)
 	div(class="flex flex-col items-center gap-2 mb-6")
-		img(src="/avatar.svg" alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-orange-400/30 shadow-md bg-white/30 mb-2")
+		img(src="" alt="User Avatar" class="w-16 h-16 rounded-full border-4 border-orange-400/30 shadow-md bg-white/30 mb-2")
 		span(class="text-lg font-bold text-white") Guest
 		span(class="text-xs text-zinc-400") Welcome!
 

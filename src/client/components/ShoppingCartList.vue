@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import axios from "axios";
+
+
 const cartItems = defineProps<{
 	products: [];
 }>();
+
 const emit = defineEmits<{
 	(e: 'remove-from-cart', id: number): void;
 }>();
@@ -23,7 +26,7 @@ div(class="flex flex-col gap-4 w-full")
 	)
 		div(class="flex items-center gap-4 h-20")
 			div(class="aspect-square h-full overflow-hidden rounded-xl bg-zinc-800")
-				img(class="h-full w-full object-cover" :src="`../../../` + product.imageUrl")
+				img(class="h-full w-full object-cover" :src="product.imageUrl")
 
 			div(class="flex flex-col")
 				h3(class="text-lg font-medium text-white") {{product.name}}

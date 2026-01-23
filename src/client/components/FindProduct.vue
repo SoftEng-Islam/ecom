@@ -2,6 +2,7 @@
 // Emits for parent to handle search, sort, and view changes
 import { ref } from 'vue';
 
+const emit = defineEmits(['update:view']);
 const search = ref('');
 const sort = ref('low');
 const view = ref('grid');
@@ -16,7 +17,7 @@ function emitSort() {
 }
 function emitView(type: string) {
 	view.value = type;
-	// Emit view change event
+	emit('update:view', type);
 }
 </script>
 

@@ -1,0 +1,101 @@
+# Product Names List
+# Margherita Pizza
+# Pepperoni Pizza
+# Cheeseburger
+# Veggie Burger
+# Caesar Salad
+# Greek Salad
+# Chocolate Cake
+# Vanilla Ice Cream
+# Coca-Cola
+# Orange Juice
+# Spaghetti Bolognese
+# Pesto Pasta
+# Chicken Nuggets
+# Mozzarella Sticks
+# Fish Tacos
+# Beef Tacos
+# French Fries
+# Onion Rings
+# Grilled Chicken
+# Steak
+# Sushi Roll
+# Sashimi
+# Pad Thai
+# Kung Pao Chicken
+# Tiramisu
+# Cheesecake
+# Latte
+# Cappuccino
+# Bagel
+# Pancakes
+# Omelette
+# Waffles
+# Smoothie
+# Milkshake
+# Hot Dog
+# Pretzel
+# Popcorn
+# Nachos
+# Quesadilla
+# Burrito
+# Falafel
+# Hummus
+# Dim Sum
+# Ramen
+# Paella
+# Tapas
+# Croissant
+# Muffin
+# Donut
+# Bread
+# Soup
+# Chili
+# Sandwich
+# Wrap
+# Pie
+# Cookies
+# Brownies
+# Cupcake
+# Gelato
+# Yogurt
+# Cereal
+# Toast
+# Fruit Salad
+# Coleslaw
+# Mashed Potatoes
+# Rice
+# Beans
+# Lobster
+# Shrimp
+# Salmon
+# Tuna
+# Pork Chop
+# Lamb
+# Duck
+# Turkey
+# Quiche
+# Frittata
+# Hash Browns
+# Bacon
+# Sausage
+# Eggs Benedict
+# French Toast
+# Biscuits
+# Jam
+# Honey
+# Ketchup
+# Mustard
+# Mayonnaise
+# Soy Sauce
+# Hot Sauce
+# Vinegar
+# Oil
+# Salt
+# Pepper
+# Herbs
+# Spices
+# Tea
+# Coffee
+# Water
+# Soda

@@ -67,7 +67,7 @@ onMounted(created);
 
 async function addToCart() {
 	try {
-		await axios.post('/api/users/1234/cart', { id: productId, quantity: quantity.value });
+		await axios.post(`/api/users/${userId}/cart`, { id: productId, quantity: quantity.value });
 		alert(`Successfully added ${quantity.value} item(s) to cart`);
 		// Refresh cart items
 		const cartResponse = await axios.get(`/api/users/${userId}/cart`);

@@ -1,0 +1,23 @@
+meta {
+  name: createProducts
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{api}}/cart/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": 22112,
+    "name": "Islam"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

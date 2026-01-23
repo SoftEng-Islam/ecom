@@ -1,0 +1,16 @@
+meta {
+  name: Get Products by Price
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{api}}/products/price/high
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

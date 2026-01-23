@@ -1,29 +1,31 @@
 import "dotenv/config";
+
+import { app } from "./app.ts";
+import { connectDB } from "./config/database.ts";
+
 import express from "express";
 import ViteExpress from "vite-express";
-
-import { connectDB } from "./connection/index.ts";
-import toDoRouter from "./routes/todo.routes.ts";
 
 // Constants
 const PORT: number = Number(process.env.PORT) || 3000;
 
-// Initialize App
-const app = express();
-
-// Middleware
-app.use(express.json());
-
-// Routes
-app.use("/api/todos", toDoRouter);
-
 // Database Connection
-try {
-	await connectDB();
-} catch (error) {
-	console.error("Failed to connect to database:", error);
-	process.exit(1);
-}
+const start = async () => {
+	// Database Connection
+	try {
+		await connectDB();
+	} catch (error) {
+		console.error(`Failed to connect to Database: ${error}`);
+		process.exit(1);
+	}
+};
+
+// ---------------
+// User & Cart EndPoints (To be refactored)
+// ---------------
+
+// Server initialization
+start();
 
 // Start Server
 ViteExpress.listen(app, PORT, () =>

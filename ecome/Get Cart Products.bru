@@ -1,0 +1,16 @@
+meta {
+  name: Get Cart Products
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{api}}/users/1234/cart
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

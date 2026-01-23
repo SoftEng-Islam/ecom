@@ -7,18 +7,18 @@ import vuePugPlugin from "vite-plugin-pug";
 import viteImagemin from "vite-plugin-imagemin";
 import { visualizer } from "rollup-plugin-visualizer";
 
-import fs from "fs";
-import path from "path";
-import dotenv from "dotenv";
-dotenv.config();
-const port = process.env.PORT || 3000;
+// import fs from "fs";
+// import path from "path";
+// import dotenv from "dotenv";
+// dotenv.config();
+// const port = process.env.PORT || 3000;
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
 	// base: "",
 	server: {
 		watch: {
-			port: port,
+			// port: port,
 			open: true,
 			usePolling: true,
 			interval: 300,

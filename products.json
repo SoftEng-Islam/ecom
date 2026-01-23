@@ -1,0 +1,1538 @@
+[
+    {
+        "id": "1",
+        "name": "Margherita Pizza",
+        "type": "food",
+        "tags": [
+            "italian",
+            "pizza",
+            "vegetarian"
+        ],
+        "description": "Classic pizza with tomato sauce, mozzarella, and fresh basil.",
+        "basePrice": 12.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Margherita+Pizza",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.08,
+        "vatRate": 0.1
+    },
+    {
+        "id": "2",
+        "name": "Pepperoni Pizza",
+        "type": "food",
+        "tags": [
+            "italian",
+            "pizza",
+            "spicy"
+        ],
+        "description": "Spicy pepperoni slices on a bed of cheese and tomato sauce.",
+        "basePrice": 14.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pepperoni+Pizza",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.08
+    },
+    {
+        "id": "3",
+        "name": "Cheeseburger",
+        "type": "food",
+        "tags": [
+            "american",
+            "burger",
+            "beef"
+        ],
+        "description": "Juicy beef patty with melted cheddar, lettuce, and tomato.",
+        "basePrice": 9.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cheeseburger",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 8.99,
+        "saleStart": "2026-01-22T00:00:00.000Z",
+        "saleEnd": "2026-01-28T00:00:00.000Z"
+    },
+    {
+        "id": "4",
+        "name": "Veggie Burger",
+        "type": "food",
+        "tags": [
+            "vegan",
+            "burger",
+            "plant-based"
+        ],
+        "description": "Plant-based patty with avocado, sprouts, and vegan mayo.",
+        "basePrice": 10.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Veggie+Burger",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.15
+    },
+    {
+        "id": "5",
+        "name": "Caesar Salad",
+        "type": "food",
+        "tags": [
+            "salad",
+            "healthy",
+            "vegetarian"
+        ],
+        "description": "Crisp romaine lettuce with parmesan, croutons, and Caesar dressing.",
+        "basePrice": 8.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Caesar+Salad",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "6",
+        "name": "Greek Salad",
+        "type": "food",
+        "tags": [
+            "mediterranean",
+            "salad",
+            "feta"
+        ],
+        "description": "Feta cheese, olives, cucumbers, and tomatoes with olive oil.",
+        "basePrice": 9.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Greek+Salad",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.07
+    },
+    {
+        "id": "7",
+        "name": "Chocolate Cake",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "chocolate",
+            "sweet"
+        ],
+        "description": "Rich chocolate layers with fudge frosting and sprinkles.",
+        "basePrice": 6.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Chocolate+Cake",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "8",
+        "name": "Vanilla Ice Cream",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "ice cream",
+            "creamy"
+        ],
+        "description": "Creamy vanilla bean ice cream topped with chocolate chips.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Vanilla+Ice+Cream",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 4.49
+    },
+    {
+        "id": "9",
+        "name": "Coca-Cola",
+        "type": "food",
+        "tags": [
+            "drink",
+            "soda",
+            "carbonated"
+        ],
+        "description": "Classic carbonated soft drink in a 12oz can.",
+        "basePrice": 1.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Coca-Cola",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "10",
+        "name": "Orange Juice",
+        "type": "food",
+        "tags": [
+            "drink",
+            "juice",
+            "fresh"
+        ],
+        "description": "Freshly squeezed orange juice, no pulp.",
+        "basePrice": 3.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Orange+Juice",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.05
+    },
+    {
+        "id": "11",
+        "name": "Spaghetti Bolognese",
+        "type": "food",
+        "tags": [
+            "italian",
+            "pasta",
+            "meat"
+        ],
+        "description": "Pasta with rich meat sauce, parmesan, and herbs.",
+        "basePrice": 11.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Spaghetti+Bolognese",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "12",
+        "name": "Pesto Pasta",
+        "type": "food",
+        "tags": [
+            "italian",
+            "pasta",
+            "vegetarian"
+        ],
+        "description": "Fettuccine tossed in basil pesto and pine nuts.",
+        "basePrice": 10.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pesto+Pasta",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.08
+    },
+    {
+        "id": "13",
+        "name": "Chicken Nuggets",
+        "type": "food",
+        "tags": [
+            "appetizer",
+            "chicken",
+            "fried"
+        ],
+        "description": "Crispy fried chicken pieces with dipping sauce.",
+        "basePrice": 7.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Chicken+Nuggets",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "14",
+        "name": "Mozzarella Sticks",
+        "type": "food",
+        "tags": [
+            "appetizer",
+            "cheese",
+            "fried"
+        ],
+        "description": "Breaded mozzarella cheese sticks with marinara.",
+        "basePrice": 6.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Mozzarella+Sticks",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 5.99
+    },
+    {
+        "id": "15",
+        "name": "Fish Tacos",
+        "type": "food",
+        "tags": [
+            "mexican",
+            "taco",
+            "seafood"
+        ],
+        "description": "Grilled fish in corn tortillas with cabbage slaw.",
+        "basePrice": 13.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Fish+Tacos",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "16",
+        "name": "Beef Tacos",
+        "type": "food",
+        "tags": [
+            "mexican",
+            "taco",
+            "beef"
+        ],
+        "description": "Seasoned beef in soft tortillas with salsa and cheese.",
+        "basePrice": 12.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Beef+Tacos",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.12
+    },
+    {
+        "id": "17",
+        "name": "French Fries",
+        "type": "food",
+        "tags": [
+            "side",
+            "potato",
+            "fried"
+        ],
+        "description": "Golden crispy fries seasoned with salt.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=French+Fries",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "18",
+        "name": "Onion Rings",
+        "type": "food",
+        "tags": [
+            "side",
+            "onion",
+            "fried"
+        ],
+        "description": "Beer-battered onion rings with ranch dip.",
+        "basePrice": 5.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Onion+Rings",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "19",
+        "name": "Grilled Chicken",
+        "type": "food",
+        "tags": [
+            "main",
+            "chicken",
+            "grilled"
+        ],
+        "description": "Herb-marinated chicken breast grilled to perfection.",
+        "basePrice": 15.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Grilled+Chicken",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.09
+    },
+    {
+        "id": "20",
+        "name": "Steak",
+        "type": "food",
+        "tags": [
+            "main",
+            "beef",
+            "grilled"
+        ],
+        "description": "Juicy ribeye steak with garlic butter.",
+        "basePrice": 24.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Steak",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "21",
+        "name": "Sushi Roll",
+        "type": "food",
+        "tags": [
+            "japanese",
+            "sushi",
+            "seafood"
+        ],
+        "description": "California roll with crab, avocado, and cucumber.",
+        "basePrice": 8.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Sushi+Roll",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "22",
+        "name": "Sashimi",
+        "type": "food",
+        "tags": [
+            "japanese",
+            "sushi",
+            "raw"
+        ],
+        "description": "Fresh salmon sashimi slices.",
+        "basePrice": 12.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Sashimi",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 11.99
+    },
+    {
+        "id": "23",
+        "name": "Pad Thai",
+        "type": "food",
+        "tags": [
+            "thai",
+            "noodles",
+            "shrimp"
+        ],
+        "description": "Stir-fried noodles with shrimp, peanuts, and lime.",
+        "basePrice": 11.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pad+Thai",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "24",
+        "name": "Kung Pao Chicken",
+        "type": "food",
+        "tags": [
+            "chinese",
+            "chicken",
+            "spicy"
+        ],
+        "description": "Spicy chicken stir-fry with peanuts and vegetables.",
+        "basePrice": 10.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Kung+Pao+Chicken",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.1
+    },
+    {
+        "id": "25",
+        "name": "Tiramisu",
+        "type": "food",
+        "tags": [
+            "italian",
+            "dessert",
+            "coffee"
+        ],
+        "description": "Italian dessert with coffee-soaked ladyfingers and mascarpone.",
+        "basePrice": 7.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Tiramisu",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "26",
+        "name": "Cheesecake",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "cheese",
+            "creamy"
+        ],
+        "description": "New York-style cheesecake with berry topping.",
+        "basePrice": 6.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cheesecake",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "27",
+        "name": "Latte",
+        "type": "food",
+        "tags": [
+            "drink",
+            "coffee",
+            "milk"
+        ],
+        "description": "Espresso with steamed milk and foam.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Latte",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "28",
+        "name": "Cappuccino",
+        "type": "food",
+        "tags": [
+            "drink",
+            "coffee",
+            "foam"
+        ],
+        "description": "Espresso with equal parts milk and foam.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cappuccino",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.06
+    },
+    {
+        "id": "29",
+        "name": "Bagel",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "bread",
+            "cream cheese"
+        ],
+        "description": "Toasted bagel with cream cheese.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Bagel",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "30",
+        "name": "Pancakes",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "sweet",
+            "fluffy"
+        ],
+        "description": "Fluffy pancakes with maple syrup.",
+        "basePrice": 8.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pancakes",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "31",
+        "name": "Omelette",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "eggs",
+            "vegetables"
+        ],
+        "description": "Three-egg omelette with cheese and veggies.",
+        "basePrice": 9.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Omelette",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 8.99
+    },
+    {
+        "id": "32",
+        "name": "Waffles",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "sweet",
+            "crispy"
+        ],
+        "description": "Belgian waffles with whipped cream.",
+        "basePrice": 7.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Waffles",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "33",
+        "name": "Smoothie",
+        "type": "food",
+        "tags": [
+            "drink",
+            "fruit",
+            "healthy"
+        ],
+        "description": "Mixed berry smoothie with yogurt.",
+        "basePrice": 5.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Smoothie",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "34",
+        "name": "Milkshake",
+        "type": "food",
+        "tags": [
+            "drink",
+            "milk",
+            "sweet"
+        ],
+        "description": "Vanilla milkshake with whipped topping.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Milkshake",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.08
+    },
+    {
+        "id": "35",
+        "name": "Hot Dog",
+        "type": "food",
+        "tags": [
+            "street food",
+            "sausage",
+            "mustard"
+        ],
+        "description": "Classic hot dog with mustard and relish.",
+        "basePrice": 6.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Hot+Dog",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "36",
+        "name": "Pretzel",
+        "type": "food",
+        "tags": [
+            "snack",
+            "bread",
+            "cheese"
+        ],
+        "description": "Soft pretzel with cheese dip.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pretzel",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "37",
+        "name": "Popcorn",
+        "type": "food",
+        "tags": [
+            "snack",
+            "buttered",
+            "crispy"
+        ],
+        "description": "Buttered popcorn in a large bag.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Popcorn",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "38",
+        "name": "Nachos",
+        "type": "food",
+        "tags": [
+            "appetizer",
+            "chips",
+            "cheese"
+        ],
+        "description": "Tortilla chips with cheese, jalapeños, and salsa.",
+        "basePrice": 9.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Nachos",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.07
+    },
+    {
+        "id": "39",
+        "name": "Quesadilla",
+        "type": "food",
+        "tags": [
+            "mexican",
+            "cheese",
+            "tortilla"
+        ],
+        "description": "Cheese quesadilla with sour cream.",
+        "basePrice": 8.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Quesadilla",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "40",
+        "name": "Burrito",
+        "type": "food",
+        "tags": [
+            "mexican",
+            "beef",
+            "rice"
+        ],
+        "description": "Beef burrito with rice, beans, and guacamole.",
+        "basePrice": 11.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Burrito",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "41",
+        "name": "Falafel",
+        "type": "food",
+        "tags": [
+            "middle eastern",
+            "chickpea",
+            "vegan"
+        ],
+        "description": "Chickpea patties with tahini sauce.",
+        "basePrice": 7.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Falafel",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "42",
+        "name": "Hummus",
+        "type": "food",
+        "tags": [
+            "middle eastern",
+            "dip",
+            "chickpea"
+        ],
+        "description": "Creamy hummus with pita bread.",
+        "basePrice": 5.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Hummus",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 5.49
+    },
+    {
+        "id": "43",
+        "name": "Dim Sum",
+        "type": "food",
+        "tags": [
+            "chinese",
+            "dumplings",
+            "steamed"
+        ],
+        "description": "Steamed dumplings with pork filling.",
+        "basePrice": 8.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Dim+Sum",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "44",
+        "name": "Ramen",
+        "type": "food",
+        "tags": [
+            "japanese",
+            "soup",
+            "noodles"
+        ],
+        "description": "Noodle soup with pork, egg, and vegetables.",
+        "basePrice": 12.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Ramen",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.11
+    },
+    {
+        "id": "45",
+        "name": "Paella",
+        "type": "food",
+        "tags": [
+            "spanish",
+            "rice",
+            "seafood"
+        ],
+        "description": "Spanish rice dish with seafood and saffron.",
+        "basePrice": 16.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Paella",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "46",
+        "name": "Tapas",
+        "type": "food",
+        "tags": [
+            "spanish",
+            "appetizers",
+            "variety"
+        ],
+        "description": "Assortment of small plates with olives and cheese.",
+        "basePrice": 14.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Tapas",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "47",
+        "name": "Croissant",
+        "type": "food",
+        "tags": [
+            "french",
+            "pastry",
+            "buttery"
+        ],
+        "description": "Buttery French pastry.",
+        "basePrice": 3.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Croissant",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "48",
+        "name": "Muffin",
+        "type": "food",
+        "tags": [
+            "bakery",
+            "blueberry",
+            "sweet"
+        ],
+        "description": "Blueberry muffin with streusel topping.",
+        "basePrice": 2.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Muffin",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "49",
+        "name": "Donut",
+        "type": "food",
+        "tags": [
+            "bakery",
+            "glazed",
+            "sweet"
+        ],
+        "description": "Glazed donut with sprinkles.",
+        "basePrice": 2.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Donut",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "50",
+        "name": "Bread",
+        "type": "food",
+        "tags": [
+            "bakery",
+            "sourdough",
+            "fresh"
+        ],
+        "description": "Fresh sourdough loaf.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Bread",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.05
+    },
+    {
+        "id": "51",
+        "name": "Soup",
+        "type": "food",
+        "tags": [
+            "soup",
+            "tomato",
+            "sandwich"
+        ],
+        "description": "Tomato soup with grilled cheese sandwich.",
+        "basePrice": 7.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Soup",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "52",
+        "name": "Chili",
+        "type": "food",
+        "tags": [
+            "soup",
+            "beef",
+            "spicy"
+        ],
+        "description": "Spicy beef chili with beans.",
+        "basePrice": 9.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Chili",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "53",
+        "name": "Sandwich",
+        "type": "food",
+        "tags": [
+            "sandwich",
+            "turkey",
+            "club"
+        ],
+        "description": "Turkey club sandwich with fries.",
+        "basePrice": 10.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Sandwich",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 9.49
+    },
+    {
+        "id": "54",
+        "name": "Wrap",
+        "type": "food",
+        "tags": [
+            "sandwich",
+            "chicken",
+            "caesar"
+        ],
+        "description": "Chicken Caesar wrap with veggies.",
+        "basePrice": 8.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Wrap",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "55",
+        "name": "Pie",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "apple",
+            "crust"
+        ],
+        "description": "Apple pie with vanilla ice cream.",
+        "basePrice": 6.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pie",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "56",
+        "name": "Cookies",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "chocolate chip",
+            "baked"
+        ],
+        "description": "Chocolate chip cookies, dozen.",
+        "basePrice": 5.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cookies",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.09
+    },
+    {
+        "id": "57",
+        "name": "Brownies",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "chocolate",
+            "fudgy"
+        ],
+        "description": "Fudgy chocolate brownies.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Brownies",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "58",
+        "name": "Cupcake",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "red velvet",
+            "frosting"
+        ],
+        "description": "Red velvet cupcake with cream cheese frosting.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cupcake",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "59",
+        "name": "Gelato",
+        "type": "food",
+        "tags": [
+            "dessert",
+            "pistachio",
+            "italian"
+        ],
+        "description": "Pistachio gelato in a cup.",
+        "basePrice": 5.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Gelato",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "60",
+        "name": "Yogurt",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "greek",
+            "healthy"
+        ],
+        "description": "Greek yogurt with honey and granola.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Yogurt",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "61",
+        "name": "Cereal",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "cornflakes",
+            "milk"
+        ],
+        "description": "Cornflakes with milk.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Cereal",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "62",
+        "name": "Toast",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "avocado",
+            "egg"
+        ],
+        "description": "Avocado toast with poached egg.",
+        "basePrice": 7.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Toast",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.06
+    },
+    {
+        "id": "63",
+        "name": "Fruit Salad",
+        "type": "food",
+        "tags": [
+            "salad",
+            "fruit",
+            "fresh"
+        ],
+        "description": "Mixed seasonal fruits.",
+        "basePrice": 6.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Fruit+Salad",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "64",
+        "name": "Coleslaw",
+        "type": "food",
+        "tags": [
+            "side",
+            "cabbage",
+            "creamy"
+        ],
+        "description": "Creamy cabbage slaw.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Coleslaw",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "65",
+        "name": "Mashed Potatoes",
+        "type": "food",
+        "tags": [
+            "side",
+            "potato",
+            "creamy"
+        ],
+        "description": "Creamy mashed potatoes with gravy.",
+        "basePrice": 5.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Mashed+Potatoes",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "66",
+        "name": "Rice",
+        "type": "food",
+        "tags": [
+            "side",
+            "jasmine",
+            "steamed"
+        ],
+        "description": "Steamed jasmine rice.",
+        "basePrice": 3.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Rice",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "67",
+        "name": "Beans",
+        "type": "food",
+        "tags": [
+            "side",
+            "refried",
+            "cheese"
+        ],
+        "description": "Refried beans with cheese.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Beans",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "68",
+        "name": "Lobster",
+        "type": "food",
+        "tags": [
+            "seafood",
+            "lobster",
+            "butter"
+        ],
+        "description": "Grilled lobster tail with butter.",
+        "basePrice": 29.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Lobster",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 27.99
+    },
+    {
+        "id": "69",
+        "name": "Shrimp",
+        "type": "food",
+        "tags": [
+            "seafood",
+            "shrimp",
+            "garlic"
+        ],
+        "description": "Garlic butter shrimp.",
+        "basePrice": 18.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Shrimp",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "70",
+        "name": "Salmon",
+        "type": "food",
+        "tags": [
+            "seafood",
+            "salmon",
+            "lemon"
+        ],
+        "description": "Baked salmon with lemon dill sauce.",
+        "basePrice": 19.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Salmon",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.12
+    },
+    {
+        "id": "71",
+        "name": "Tuna",
+        "type": "food",
+        "tags": [
+            "seafood",
+            "tuna",
+            "seared"
+        ],
+        "description": "Seared tuna steak.",
+        "basePrice": 21.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Tuna",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "72",
+        "name": "Pork Chop",
+        "type": "food",
+        "tags": [
+            "main",
+            "pork",
+            "apple"
+        ],
+        "description": "Grilled pork chop with apple sauce.",
+        "basePrice": 16.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pork+Chop",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "73",
+        "name": "Lamb",
+        "type": "food",
+        "tags": [
+            "main",
+            "lamb",
+            "rosemary"
+        ],
+        "description": "Roasted lamb with rosemary.",
+        "basePrice": 22.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Lamb",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.08
+    },
+    {
+        "id": "74",
+        "name": "Duck",
+        "type": "food",
+        "tags": [
+            "main",
+            "duck",
+            "cherry"
+        ],
+        "description": "Crispy duck breast with cherry sauce.",
+        "basePrice": 24.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Duck",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "75",
+        "name": "Turkey",
+        "type": "food",
+        "tags": [
+            "main",
+            "turkey",
+            "herb"
+        ],
+        "description": "Herb-roasted turkey breast.",
+        "basePrice": 17.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Turkey",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "76",
+        "name": "Quiche",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "spinach",
+            "cheese"
+        ],
+        "description": "Spinach and cheese quiche.",
+        "basePrice": 9.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Quiche",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 8.49
+    },
+    {
+        "id": "77",
+        "name": "Frittata",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "vegetable",
+            "feta"
+        ],
+        "description": "Vegetable frittata with feta.",
+        "basePrice": 10.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Frittata",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "78",
+        "name": "Hash Browns",
+        "type": "food",
+        "tags": [
+            "side",
+            "potato",
+            "crispy"
+        ],
+        "description": "Crispy potato hash.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Hash+Browns",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "79",
+        "name": "Bacon",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "bacon",
+            "crispy"
+        ],
+        "description": "Crispy bacon strips.",
+        "basePrice": 6.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Bacon",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.07
+    },
+    {
+        "id": "80",
+        "name": "Sausage",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "sausage",
+            "grilled"
+        ],
+        "description": "Grilled sausage links.",
+        "basePrice": 7.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Sausage",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "81",
+        "name": "Eggs Benedict",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "eggs",
+            "hollandaise"
+        ],
+        "description": "Poached eggs on English muffin with hollandaise.",
+        "basePrice": 12.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Eggs+Benedict",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "82",
+        "name": "French Toast",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "cinnamon",
+            "syrup"
+        ],
+        "description": "Cinnamon French toast with syrup.",
+        "basePrice": 9.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=French+Toast",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.07
+    },
+    {
+        "id": "83",
+        "name": "Biscuits",
+        "type": "food",
+        "tags": [
+            "breakfast",
+            "buttermilk",
+            "gravy"
+        ],
+        "description": "Buttermilk biscuits with gravy.",
+        "basePrice": 8.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Biscuits",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "84",
+        "name": "Jam",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "strawberry",
+            "sweet"
+        ],
+        "description": "Strawberry jam jar.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Jam",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "85",
+        "name": "Honey",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "pure",
+            "natural"
+        ],
+        "description": "Pure honey bottle.",
+        "basePrice": 5.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Honey",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "86",
+        "name": "Ketchup",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "tomato",
+            "sauce"
+        ],
+        "description": "Tomato ketchup bottle.",
+        "basePrice": 2.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Ketchup",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "87",
+        "name": "Mustard",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "yellow",
+            "tangy"
+        ],
+        "description": "Yellow mustard bottle.",
+        "basePrice": 2.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Mustard",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "88",
+        "name": "Mayonnaise",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "classic",
+            "creamy"
+        ],
+        "description": "Classic mayo jar.",
+        "basePrice": 3.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Mayonnaise",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 3.19
+    },
+    {
+        "id": "89",
+        "name": "Soy Sauce",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "low-sodium",
+            "asian"
+        ],
+        "description": "Low-sodium soy sauce.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Soy+Sauce",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "90",
+        "name": "Hot Sauce",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "spicy",
+            "chili"
+        ],
+        "description": "Spicy chili hot sauce.",
+        "basePrice": 3.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Hot+Sauce",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "vatRate": 0.06
+    },
+    {
+        "id": "91",
+        "name": "Vinegar",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "balsamic",
+            "aged"
+        ],
+        "description": "Balsamic vinegar bottle.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Vinegar",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "92",
+        "name": "Oil",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "olive",
+            "virgin"
+        ],
+        "description": "Extra virgin olive oil.",
+        "basePrice": 6.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Oil",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "93",
+        "name": "Salt",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "sea",
+            "shaker"
+        ],
+        "description": "Sea salt shaker.",
+        "basePrice": 1.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Salt",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "94",
+        "name": "Pepper",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "black",
+            "grinder"
+        ],
+        "description": "Black pepper grinder.",
+        "basePrice": 2.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Pepper",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "95",
+        "name": "Herbs",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "basil",
+            "oregano"
+        ],
+        "description": "Dried basil and oregano mix.",
+        "basePrice": 3.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Herbs",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "96",
+        "name": "Spices",
+        "type": "food",
+        "tags": [
+            "condiment",
+            "cumin",
+            "paprika"
+        ],
+        "description": "Cumin and paprika blend.",
+        "basePrice": 4.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Spices",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "taxRate": 0.05
+    },
+    {
+        "id": "97",
+        "name": "Tea",
+        "type": "food",
+        "tags": [
+            "drink",
+            "green",
+            "bags"
+        ],
+        "description": "Green tea bags.",
+        "basePrice": 4.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Tea",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "98",
+        "name": "Coffee",
+        "type": "food",
+        "tags": [
+            "drink",
+            "ground",
+            "beans"
+        ],
+        "description": "Ground coffee beans.",
+        "basePrice": 8.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Coffee",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "99",
+        "name": "Water",
+        "type": "food",
+        "tags": [
+            "drink",
+            "bottled",
+            "spring"
+        ],
+        "description": "Bottled spring water.",
+        "basePrice": 1.49,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Water",
+        "dueDate": "2027-01-21T00:00:00.000Z"
+    },
+    {
+        "id": "100",
+        "name": "Soda",
+        "type": "food",
+        "tags": [
+            "drink",
+            "lemon-lime",
+            "carbonated"
+        ],
+        "description": "Lemon-lime soda can.",
+        "basePrice": 1.99,
+        "currency": "USD",
+        "imageUrl": "https://via.placeholder.com/300x200?text=Soda",
+        "dueDate": "2027-01-21T00:00:00.000Z",
+        "salePrice": 1.79
+    }
+]

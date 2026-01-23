@@ -1,0 +1,22 @@
+meta {
+  name: Delete from cart
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{api}}/users/1234/cart/2223
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": 2223
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

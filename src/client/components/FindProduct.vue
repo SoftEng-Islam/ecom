@@ -2,7 +2,7 @@
 // Emits for parent to handle search, sort, and view changes
 import { ref } from 'vue';
 
-const emit = defineEmits(['update:view']);
+const emit = defineEmits(['update:view', 'update:search']);
 const search = ref('');
 const sort = ref('low');
 const view = ref('grid');
@@ -10,7 +10,7 @@ const weight = ref('');
 const weightUnit = ref('Gram');
 
 function emitSearch() {
-	// Emit search event
+	emit('update:search', search.value);
 }
 function emitSort() {
 	// Emit sort event
@@ -33,6 +33,7 @@ div(class="w-full flex flex-row items-center gap-4 px-4 py-2 rounded-2xl bg-whit
 			option(value="sales") Most Sales
 
 	//- [Center] Search Box
+	// Emits search input to parent for filtering products
 	div(class="flex-1 flex justify-center")
 		input(type="search" v-model="search" @input="emitSearch" placeholder="Looking for something..." class="w-full max-w-xs px-4 py-2 rounded-lg bg-zinc-900/60 text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all text-sm shadow-inner")
 

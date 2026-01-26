@@ -1,62 +1,90 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import axios from "axios";
-import { getAuth } from "firebase/auth";
-import { type User } from "firebase/auth";
+import { computed, onMounted } from 'vue';
+import { useCartStore } from '@client/store/cart.store';
 import ShoppingCartList from '../components/ShoppingCartList.vue';
 
-const props = defineProps<{
-	user: User;
-}>();
+const cartStore = useCartStore();
 
-const user = props.user;
-const userId: string = user.uid;
-const cartItems = ref([]);
+// Fetch cart when component mounts
+onMounted(async () => {
+  if (!cartStore.items || cartStore.items.length === 0) {
+    await cartStore.fetchCart();
+  }
+});
 
-if (user) {
-	async function created() {
-		const response = await axios.get(`/api/users/${userId}/cart`);
-		cartItems.value = response.data;
-	}
+// Handle retry
+const handleRetry = async () => {
+  await cartStore.fetchCart();
+};
 
-	async function removeFromCart(productId: number) {
-		console.log(`cart View: ${productId}`);
-		const response = await axios.delete(`/api/users/${userId}/cart/${productId}`);
-		const updatedCart = response.data;
-		cartItems.value = updatedCart;
-	}
-	onMounted(created);
-} else {
-	console.log(`There is no user to show the cart items`);
-}
+// Calculate totals using the store's items
+const subtotal = computed(() => {
+  if (!Array.isArray(cartStore.items)) return 0;
+  return cartStore.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+});
 
+const shipping = computed(() => {
+  return subtotal.value > 0 ? 0 : 0;
+});
+
+const total = computed(() => subtotal.value + shipping.value);
 </script>
+
 <template lang="pug">
-div(class="max-w-4xl mx-auto")
-	header(class="mb-8 flex items-center justify-between")
-		div
-			h1(class="text-3xl font-bold font-outfit text-white mb-2") Shopping Cart
-			p(class="text-zinc-400") Review and manage your selected items.
+div(class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8")
+  //- Loading state
+  div(v-if="cartStore.isLoading")
+    div(class="space-y-6 animate-pulse")
+      div(v-for="i in 3" :key="i" class="h-32 bg-zinc-800/50 rounded-2xl")
+      div(class="h-40 bg-zinc-800/50 rounded-2xl mt-6")
 
-		div(v-if="cartItems.length > 0" class="text-right")
-			span(class="text-sm text-zinc-500") Total Items
-			p(class="text-xl font-semibold text-white") {{cartItems.length}}
+  //- Error state
+  div(v-else-if="cartStore.error" class="bg-red-900/30 border border-red-500/30 text-red-100 p-6 rounded-2xl text-center")
+    p {{ cartStore.error }}
+    button(
+      @click="handleRetry"
+      class="mt-4 px-4 py-2 bg-red-600 hover:bg-red-500 rounded-lg text-sm font-medium transition-colors"
+    ) Retry
 
-	div(v-if="cartItems.length > 0" class="flex flex-col gap-6")
-		div(class="bg-zinc-900/30 rounded-3xl border border-white/5 p-6 backdrop-blur-sm")
-			ShoppingCartList(@remove-from-cart="removeFromCart($event)" :products="cartItems")
+  //- Empty cart
+  div(v-else-if="cartStore.items.length === 0" class="text-center py-12")
+    div(class="mx-auto h-24 w-24 text-gray-400" aria-hidden="true")
+      svg(fill="none" viewBox="0 0 24 24" stroke="currentColor")
+        path(stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m-10 0h10a2 2 0 002-2v-5a2 2 0 00-2-2H7m10 0H7m0 0H5m2 0H5m2 0h2m0 0h2m-2 0h2m-2 0h2")
+    h3(class="mt-4 text-lg font-medium text-gray-100") Your cart is empty
+    p(class="mt-1 text-gray-400") Start adding some items to your cart
+    div(class="mt-6")
+      router-link(
+        to="/products"
+        class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+      ) Continue Shopping
 
-		div(class="flex justify-end pt-4 border-t border-white/5")
-			button(
-				type="button"
-				class="cursor-pointer px-8 py-3 rounded-xl bg-linear-to-r from-orange-500 to-pink-600 text-white font-semibold shadow-lg shadow-orange-500/20 hover:shadow-orange-500/40 hover:scale-[1.02] transition-all duration-300"
-			) Proceed to Checkout
-
-	div(v-else class="flex flex-col items-center justify-center py-20 text-center")
-		div(class="size-24 rounded-full bg-zinc-900 flex items-center justify-center mb-6")
-			svg(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-10 text-zinc-600")
-				path(stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 5.407c.441 1.889.661 2.833.088 3.475-.575.641-1.544.641-3.483.641H8.528c-1.939 0-2.908 0-3.483-.641-.573-.642-.353-1.586.088-3.475l1.263-5.407c.24-1.028.36-1.542.756-1.825S7.974 4.5 9 4.5h6c1.026 0 1.54 0 1.935.263.396.282.516.797.756 1.825Z")
-		h2(class="text-2xl font-bold text-white mb-2") Your cart is empty
-		p(class="text-zinc-400 mb-8 max-w-sm") Looks like you haven't added anything to your cart yet. Browse our products to find something you like.
-		router-link(to="/products" class="text-orange-400 hover:text-orange-300 font-medium hover:underline") Browse Products
+  //- Cart with items
+  div(v-else class="bg-zinc-800/50 rounded-2xl overflow-hidden shadow")
+    div(class="px-4 py-5 sm:px-6 border-b border-zinc-700")
+      h2(class="text-lg font-medium text-white") Shopping Cart
+    div(aria-hidden="true" class="px-4 py-5 sm:p-6")
+      ShoppingCartList(
+        :items="cartStore.items"
+        @update-quantity="(id, quantity) => cartStore.updateQuantity(id, quantity)"
+        @remove-item="(id) => cartStore.removeFromCart(id)"
+      )
+    div(class="border-t border-zinc-700 px-4 py-5 sm:px-6")
+      div(class="flex justify-between text-base font-medium text-white")
+        p Subtotal
+        p ${{ subtotal.toFixed(2) }}
+      p(class="mt-0.5 text-sm text-gray-400") Shipping and taxes calculated at checkout.
+      div(class="mt-6")
+        button(
+          @click="$router.push('/checkout')"
+          class="w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+        ) Proceed to Checkout
+      div(class="mt-6 flex justify-center text-sm text-center text-gray-400")
+        p
+          | or
+          router-link(
+            to="/products"
+            class="text-orange-500 font-medium hover:text-orange-400"
+          ) Continue Shopping
+          |  for more items
 </template>

@@ -22,6 +22,9 @@ nav(class="w-full left-0 bg-white/20 backdrop-blur-xl shadow-xl border-b border-
 			button(type="button" class="p-2 rounded-full bg-white/10 hover:bg-orange-400/20 text-white hover:text-orange-400 transition-all duration-200 shadow-md")
 				svg(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6")
 					path(stroke-linecap="round" stroke-linejoin="round" d="M15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zm0 0c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5m9 0c0 2.485-2.015 4.5-4.5 4.5s-4.5-2.015-4.5-4.5m9 0v6.75a2.25 2.25 0 01-2.25 2.25H6.75a2.25 2.25 0 01-2.25-2.25V9")
+			router-link(to="/help" class="p-2 rounded-full bg-white/10 hover:bg-orange-400/20 text-white hover:text-orange-400 transition-all duration-200 shadow-md" title="Help & Support")
+				svg(xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6")
+					path(stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z")
 
 		//- Mobile Menu Button
 		div(class="md:hidden flex items-center")

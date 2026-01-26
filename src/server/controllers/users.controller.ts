@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import * as usersService from "../services/users.service.ts";
+import type { IUser } from "@shared/types/index.d.ts";
 
-export const createUserHandler = async (req: Request, res: Response) => {
+export const createUserHandler = async (req: Request, res: Response<IUser>) => {
 	const user = await usersService.createUser(req.body);
 	res.status(201).json(user);
 };

@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import * as cartService from "../services/cart.service.ts";
 
 export const getCartHandler = async (req: Request, res: Response) => {
+	console.log(req.params.userId);
 	const cart = await cartService.getCartItems(req.params.userId);
 	if (cart === null) {
 		res.status(404).json({ message: "User not found" });

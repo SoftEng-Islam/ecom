@@ -20,10 +20,6 @@ const start = async () => {
 	}
 };
 
-// ---------------
-// User & Cart EndPoints (To be refactored)
-// ---------------
-
 // Server initialization
 start();
 

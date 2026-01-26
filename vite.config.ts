@@ -70,9 +70,10 @@ export default defineConfig(({ mode }) => ({
 	},
 	resolve: {
 		alias: {
-			// "@": fileURLToPath(new URL("./", import.meta.url)),
-			// client: fileURLToPath(new URL("./src/client/", import.meta.url)),
-			// server: fileURLToPath(new URL("./src/server/", import.meta.url)),
+			"@": fileURLToPath(new URL("./", import.meta.url)),
+			"@shared": fileURLToPath(new URL("./src/shared/", import.meta.url)),
+			"@client": fileURLToPath(new URL("./src/client/", import.meta.url)),
+			"@server": fileURLToPath(new URL("./src/server/", import.meta.url)),
 		},
 	},
 }));

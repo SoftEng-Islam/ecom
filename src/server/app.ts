@@ -1,6 +1,8 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import express from "express";
+import cors from "cors";
+
 import userRoutes from "./routes/users.routes.ts";
 import productRoutes from "./routes/products.routes.ts";
 import cartRoutes from "./routes/cart.routes.ts";
@@ -12,8 +14,16 @@ const __dirname = path.dirname(__filename);
 export const app = express();
 
 app.use(express.json());
-app.use("/assets", express.static(path.join(__dirname, "../../public/assets/")));
-
+app.use(
+  "/assets",
+  express.static(path.join(__dirname, "../../public/assets/")),
+);
+app.use(
+  cors({
+    origin: "http://localhost:5001", // or your frontend URL
+    credentials: true,
+  }),
+);
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);

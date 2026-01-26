@@ -1,22 +1,7 @@
 import { Schema, model, Document } from "mongoose";
-export interface IUsers extends Document {
-	id: string;
-	name: string;
-	email: string;
-	age: number;
-	password: string;
-	phone?: string;
-	role: string;
-	address?: {
-		street: string;
-		city: string;
-		state: string;
-		zipCode: string;
-		country: string;
-	};
-	cartItems: string[];
-}
-const usersSchema = new Schema<IUsers>(
+import { type IUser } from "../types/user.ts";
+
+const usersSchema = new Schema<IUser>(
 	{
 		id: { type: String, required: true, unique: true },
 		name: { type: String, required: true },
@@ -37,4 +22,4 @@ const usersSchema = new Schema<IUsers>(
 	{ timestamps: true },
 );
 
-export const Users = model<IUsers>("users", usersSchema);
+export const Users = model<IUser>("users", usersSchema);

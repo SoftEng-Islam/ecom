@@ -6,6 +6,21 @@
     "moduleResolution": "NodeNext",
     "strict": true,
     "jsx": "preserve",
+    "paths": {
+      "@shared/*": [
+        "./src/shared/*"
+      ],
+      "@client/*": [
+        "./src/client/*"
+      ],
+      "@server/*": [
+        "./src/server/*"
+      ],
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/shared/types"
+    ],
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,

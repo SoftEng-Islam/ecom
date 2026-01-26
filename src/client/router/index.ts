@@ -1,35 +1,40 @@
 import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes.ts";
+import { useAuthStore } from "@client/modules/auth/auth.store.ts";
+
+const url = new URL(import.meta.env.BASE_URL, window.location.origin);
+
 const router = createRouter({
-	history: createWebHistory(import.meta.env.BASE_URL),
-	routes: [
-		{
-			path: "/",
-			name: "products",
-			component: () => import("../views/ProductsView.vue"),
-			alias: "/products",
-		},
-		{
-			path: "/login",
-			name: "login",
-			component: () => import("../views/LoginView.vue"),
-		},
-		{
-			path: "/products/:productId",
-			name: "details",
-			component: () => import("../views/ProductDetailView.vue"),
-		},
-		{
-			path: "/cart",
-			name: "cart",
-			component: () => import("../views/ShoppingCartView.vue"),
-		},
-		{
-			path: "/:pathMatch(.*)*",
-			component: () => import("../views/NotFoundView.vue"),
-		},
-	],
-	// linkActiveClass: '',
-	// linkExactActiveClass: '',
+	history: createWebHistory(url.pathname),
+	routes: routes,
+	linkActiveClass: "active",
+	linkExactActiveClass: "exact-active",
+	scrollBehavior(to, from, savedPosition) {
+		console.log(to, from, savedPosition);
+		if (savedPosition) {
+			return savedPosition;
+		}
+		return {
+			left: 0,
+			top: 0,
+		};
+	},
 });
+
+// Navigation guards
+// router.beforeEach((to, from, next) => {
+// 	const authStore = useAuthStore();
+// 	// Check if route requires authentication
+// 	if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+// 		next({ name: "login", query: { redirect: to.fullPath } });
+// 		return;
+// 	}
+// 	// Check if route is for guests only (login/register)
+// 	if (to.meta.requiresGuest && authStore.isAuthenticated) {
+// 		next({ name: "dashboard" });
+// 		return;
+// 	}
+// 	next();
+// });
 
 export default router;

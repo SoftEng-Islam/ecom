@@ -1,24 +1,24 @@
-import { createRouter, createWebHistory } from "vue-router";
-import routes from "./routes.ts";
-import { useAuthStore } from "@client/modules/auth/auth.store.ts";
+import { createRouter, createWebHistory } from 'vue-router';
+import routes from './routes.ts';
+import { useAuthStore } from '../modules/auth/auth.store';
 
 const url = new URL(import.meta.env.BASE_URL, window.location.origin);
 
 const router = createRouter({
-	history: createWebHistory(url.pathname),
-	routes: routes,
-	linkActiveClass: "active",
-	linkExactActiveClass: "exact-active",
-	scrollBehavior(to, from, savedPosition) {
-		console.log(to, from, savedPosition);
-		if (savedPosition) {
-			return savedPosition;
-		}
-		return {
-			left: 0,
-			top: 0,
-		};
-	},
+    history: createWebHistory(url.pathname),
+    routes: routes,
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'exact-active',
+    scrollBehavior(to, from, savedPosition) {
+        console.log(to, from, savedPosition);
+        if (savedPosition) {
+            return savedPosition;
+        }
+        return {
+            left: 0,
+            top: 0,
+        };
+    },
 });
 
 // Navigation guards

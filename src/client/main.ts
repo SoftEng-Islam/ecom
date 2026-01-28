@@ -19,26 +19,7 @@ import VueTippy from "vue-tippy";
 import directives from "./directives/index.ts";
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBHmDOUHxgn1LZlI3BEZeoCrnP6FYz6DCU",
-  authDomain: "ecome-site.firebaseapp.com",
-  projectId: "ecome-site",
-  storageBucket: "ecome-site.firebasestorage.app",
-  messagingSenderId: "501157673925",
-  appId: "1:501157673925:web:ca7db04737e016c83429ac",
-  measurementId: "G-GCMLKS2EC5",
-};
-
-// Initialize Firebase
-initializeApp(firebaseConfig);
-const analytics = getAnalytics(initializeApp(firebaseConfig));
+import "./services/firebase";
 
 const app = createApp(App);
 

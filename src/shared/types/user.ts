@@ -1,3 +1,5 @@
+import { IProduct } from './index.ts';
+
 export interface IUser {
 	id: string;
 	name: string;
@@ -13,5 +15,12 @@ export interface IUser {
 		zipCode: string;
 		country: string;
 	};
-	cartItems: string[];
+	cartItems: ICartItem[];
+}
+
+export interface ICartItem {
+	productId: string;
+	quantity: number;
+	addedAt?: Date;
+	product?: IProduct;
 }

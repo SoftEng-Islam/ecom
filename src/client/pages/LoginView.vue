@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { getAuth, sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { sendSignInLinkToEmail, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { auth } from "../services/firebase";
 
 const email = ref('');
 const loading = ref(false);
 const message = ref('');
 
+/**
+ * Handles the sign-in process by sending an email link.
+ * @returns {Promise<void>}
+ */
 async function SignIn() {
 	if (!email.value) {
 		message.value = 'Please enter your email.';
 		return;
 	}
 	loading.value = true;
-	const auth = getAuth();
 	const actionCodeSettings = {
 		url: window.location.origin + '/login',
 		handleCodeInApp: true,
@@ -23,18 +27,24 @@ async function SignIn() {
 		window.localStorage.setItem('emailForSignIn', email.value);
 	} catch (err) {
 		message.value = 'Failed to send login link.';
+		console.error(err);
 	} finally {
 		loading.value = false;
 	}
 }
 
-const auth = getAuth();
+// Check for sign-in link on mount/setup
 if (isSignInWithEmailLink(auth, window.location.href)) {
 	const storedEmail = window.localStorage.getItem('emailForSignIn');
+	// If email is not stored, user might have opened link on another device; prompt for email (simplified here to just fail/ignore)
 	if (storedEmail) {
 		signInWithEmailLink(auth, storedEmail, window.location.href).then(() => {
 			message.value = 'Successfully Signed in!';
 			window.localStorage.removeItem('emailForSignIn');
+			// Redirect to home or logic handled by onAuthStateChanged in App.vue
+		}).catch((err) => {
+			message.value = 'Error signing in with link.';
+			console.error(err);
 		});
 	}
 }

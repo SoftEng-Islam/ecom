@@ -1,9 +1,11 @@
-HTTP/1.1 404 Not Found
+HTTP/1.1 200 OK
 X-Powered-By: Express
-Content-Type: text/html; charset=utf-8
-Content-Length: 17
-ETag: W/"11-mDvZIAY+AU+vAESXXtbmfRvaPSc"
-Date: Mon, 12 Jan 2026 04:22:05 GMT
+Vary: Origin
+Access-Control-Allow-Credentials: true
+Content-Type: application/json; charset=utf-8
+Content-Length: 3216
+ETag: W/"c90-0OKd9q+5cLrTzYPo41MQjSbqZHE"
+Date: Tue, 27 Jan 2026 01:00:15 GMT
 Connection: keep-alive
 Keep-Alive: timeout=5
 

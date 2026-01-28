@@ -1,17 +1,26 @@
-export interface IUser extends Document {
-	id: string;
-	name: string;
-	email: string;
-	age: number;
-	password: string;
-	phone?: string;
-	role: string;
-	address?: {
-		street: string;
-		city: string;
-		state: string;
-		zipCode: string;
-		country: string;
-	};
-	cartItems: string[];
+export interface ICartItem {
+    productId: string;
+    quantity: number;
+    addedAt?: Date;
+}
+
+export interface IUser {
+    id: string;
+    firebaseUid?: string;
+    name: string;
+    email: string;
+    age?: number;
+    password?: string;
+    phone?: string;
+    role: string;
+    address?: {
+        street?: string;
+        city?: string;
+        state?: string;
+        zipCode?: string;
+        country?: string;
+    };
+    cartItems: ICartItem[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }

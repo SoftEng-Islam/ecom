@@ -1,8 +1,8 @@
-import focus from './focus'
-import type { Directive } from 'vue'
+import focus from './focus.ts';
+import type { Directive } from 'vue';
 
 const directives: Record<string, Directive> = {
-	focus,
-}
+    focus,
+};
 
-export default directives
+export default directives;

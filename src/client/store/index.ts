@@ -1,4 +1,4 @@
-import { acceptHMRUpdate, defineStore } from "pinia";
+import { acceptHMRUpdate, defineStore } from 'pinia';
 
 interface StateInterface {
     name: string;
@@ -6,9 +6,9 @@ interface StateInterface {
 }
 
 // export const useOilStore = defineStore<'oilStore', OilStoreState>('oilStore', {
-export const STORE = defineStore("oilStore", {
+export const STORE = defineStore('mainStore', {
     state: (): StateInterface => ({
-        name: "Ecome",
+        name: 'ecommerce',
         age: 26,
     }),
     getters: {},

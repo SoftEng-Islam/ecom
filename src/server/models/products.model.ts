@@ -17,6 +17,8 @@ export interface IProduct extends Document {
 	salePrice?: number; // Flash sale price
 	saleStart?: Date;
 	saleEnd?: Date;
+	averageRating?: number;
+	reviewCount?: number;
 }
 
 const productsSchema = new Schema<IProduct>(
@@ -73,6 +75,14 @@ const productsSchema = new Schema<IProduct>(
 		},
 		saleEnd: {
 			type: Date,
+		},
+		averageRating: {
+			type: Number,
+			default: 0,
+		},
+		reviewCount: {
+			type: Number,
+			default: 0,
 		},
 	},
 	{

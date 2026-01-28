@@ -6,8 +6,19 @@ export const createProductHandler = async (req: Request, res: Response) => {
 	res.status(201).json(product);
 };
 
-export const getProductsHandler = async (_req: Request, res: Response) => {
-	const products = await productsService.getProducts();
+export const getProductsHandler = async (req: Request, res: Response) => {
+	const { type, name, minPrice, maxPrice, rating, ids, sort, limit, skip } = req.query;
+	const products = await productsService.getProducts({
+		type: type as string,
+		name: name as string,
+		minPrice: minPrice ? Number(minPrice) : undefined,
+		maxPrice: maxPrice ? Number(maxPrice) : undefined,
+		rating: rating ? Number(rating) : undefined,
+		ids: ids as string,
+		sort: sort as string,
+		limit: limit ? Number(limit) : 20,
+		skip: skip ? Number(skip) : 0
+	});
 	res.json(products);
 };
 
@@ -20,26 +31,7 @@ export const getProductHandler = async (req: Request, res: Response) => {
 	res.json(product);
 };
 
-export const getFewProductsHandler = async (req: Request, res: Response) => {
-	const products = await productsService.getFewProducts(Number(req.params.count));
-	if (!products) {
-		res.status(404).json({ message: "Products not found" });
-		return;
-	}
-	res.json(products);
-};
-
-export const getProductsByTypeHandler = async (req: Request, res: Response) => {
-	const products = await productsService.getProductsByType(req.params.type);
-	if (!products) {
-		res.status(404).json({ message: "Products of that type not found" });
-		return;
-	}
-	res.json(products);
-};
-
-export const getProductsByPriceHandler = async (req: Request, res: Response) => {
-	const price: "low" | "high" = req.params.price as "low" | "high";
-	const products = await productsService.getProductsByPrice(price);
-	res.json(products);
+export const getCategoriesHandler = async (_req: Request, res: Response) => {
+	const categories = await productsService.getDistinctTypes();
+	res.json(categories);
 };

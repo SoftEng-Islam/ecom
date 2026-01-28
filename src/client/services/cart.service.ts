@@ -1,7 +1,8 @@
 // src/client/services/cart.service.ts
 import axios from "axios";
 
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+// Use relative path for proxy or direct URL
+const API_URL = "/api";
 
 export const cartService = {
   async getCart(token: string) {
@@ -13,29 +14,17 @@ export const cartService = {
 
   async addToCart(productId: string, quantity: number, token: string) {
     const response = await axios.post(
-      `${API_URL}/cart/items`,
-      { productId, quantity },
+      `${API_URL}/cart`,
+      { id: productId, quantity },
       { headers: { Authorization: `Bearer ${token}` } },
     );
     return response.data;
   },
 
-  async updateCartItem(
-    itemId: string,
-    data: { quantity: number },
-    token: string,
-  ) {
-    const response = await axios.patch(
-      `${API_URL}/cart/items/${itemId}`,
-      data,
-      { headers: { Authorization: `Bearer ${token}` } },
-    );
-    return response.data;
-  },
-
-  async removeFromCart(itemId: string, token: string) {
-    await axios.delete(`${API_URL}/cart/items/${itemId}`, {
+  async removeFromCart(productId: string, token: string) {
+    const response = await axios.delete(`${API_URL}/cart/${productId}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+    return response.data;
   },
 };

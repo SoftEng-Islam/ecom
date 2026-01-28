@@ -1,14 +1,25 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
-import { useCartStore } from '@client/store/cart.store';
-import ShoppingCartList from '../components/ShoppingCartList.vue';
+import { computed, onMounted, watch } from 'vue';
+import { useCartStore } from '../store/cart';
+import { useAuthStore } from '../modules/auth/auth.store';
+import ShoppingCartList from '../components/common/ShoppingCartList.vue';
 
 const cartStore = useCartStore();
+const authStore = useAuthStore();
 
-// Fetch cart when component mounts
+// Fetch cart when component mounts if user is already available
 onMounted(async () => {
-  if (!cartStore.items || cartStore.items.length === 0) {
+  if (authStore.firebaseUser) {
     await cartStore.fetchCart();
+  }
+});
+
+// Watch for user session to initialize or change
+watch(() => authStore.firebaseUser, async (newUser) => {
+  if (newUser) {
+    await cartStore.fetchCart();
+  } else {
+    cartStore.items = [];
   }
 });
 
@@ -17,16 +28,24 @@ const handleRetry = async () => {
   await cartStore.fetchCart();
 };
 
-// Calculate totals using the store's items
+// Mapped items for the list component
+const mappedItems = computed(() => {
+  return cartStore.items.map(item => ({
+    id: item.productId,
+    name: item.product?.name || 'Loading...',
+    price: item.product?.salePrice || item.product?.basePrice || 0,
+    imageUrl: item.product?.imageUrl || '',
+    quantity: item.quantity,
+    stock: 99 // Defaulting stock since it's not in the product model yet
+  }));
+});
+
+// Calculate totals using the mapped items
 const subtotal = computed(() => {
-  if (!Array.isArray(cartStore.items)) return 0;
-  return cartStore.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  return mappedItems.value.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 });
 
-const shipping = computed(() => {
-  return subtotal.value > 0 ? 0 : 0;
-});
-
+const shipping = computed(() => 0);
 const total = computed(() => subtotal.value + shipping.value);
 </script>
 
@@ -65,9 +84,9 @@ div(class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8")
       h2(class="text-lg font-medium text-white") Shopping Cart
     div(aria-hidden="true" class="px-4 py-5 sm:p-6")
       ShoppingCartList(
-        :items="cartStore.items"
+        :products="mappedItems"
         @update-quantity="(id, quantity) => cartStore.updateQuantity(id, quantity)"
-        @remove-item="(id) => cartStore.removeFromCart(id)"
+        @remove-from-cart="(id) => cartStore.removeFromCart(id)"
       )
     div(class="border-t border-zinc-700 px-4 py-5 sm:px-6")
       div(class="flex justify-between text-base font-medium text-white")

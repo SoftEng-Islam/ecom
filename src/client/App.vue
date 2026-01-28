@@ -1,43 +1,42 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { type User } from "firebase/auth";
-import TheHeader from "./layout/header/IndexApp.vue";
-import LeftSidebar from "./layout/left-sidebar/LeftSidebar.vue";
-import RightSidebar from "./layout/right-sidebar/RightSidebar.vue";
-import TheFooter from "./layout/footer/IndexApp.vue";
-const user = ref<User | null>(null);
+import { onMounted } from "vue";
+import { useAuthStore } from "./modules/auth/auth.store";
+import TheHeader from "./components/layout/TheHeader.vue";
+import TheLeftSidebar from "./components/layout/TheLeftSidebar.vue";
+import TheRightSidebar from "./components/layout/TheRightSidebar.vue";
+import TheFooter from "./components/layout/TheFooter.vue";
 
-async function created() {
-	const auth = getAuth();
-	onAuthStateChanged(auth, u => {
-		user.value = u;
-	});
-}
+const authStore = useAuthStore();
 
-onMounted(created);
+// Initialize auth state
+onMounted(() => {
+  authStore.initAuth();
+});
 </script>
 
 <template lang="pug">
 div(class="min-h-screen bg-zinc-950 font-sans text-zinc-100 flex flex-col")
-	the-header(:user="user")
-	main(class="flex flex-row w-full mx-auto p-6")
-		//- Left Sidebar could go here in the future
-		left-sidebar
+  the-header(:user="authStore.user")
+  main(class="flex flex-row w-full mx-auto p-6 flex-1")
+    //- Left Sidebar
+    //- the-left-sidebar
 
-		//- Main Content Area
-		div(class="flex-1 mx-6")
-			router-view(:user="user")
+    //- Main Content Area
+    div(class="flex-1 mx-6")
+      router-view
 
-		//- Right Sidebar could go here in the future
-		right-sidebar
-	the-footer
+    //- Right Sidebar
+    //- the-right-sidebar
+  the-footer
 </template>
 
-<style>
-body {
-	font-family: 'Inter', sans-serif;
-	background-color: #09090b;
-	/* zinc-950 */
-}
+<style scoped lang="sass">
+/* Scoped styles if any */
+</style>
+
+<style lang="sass">
+/* Global styles */
+body
+  font-family: 'Inter', sans-serif
+  background-color: #09090b
 </style>

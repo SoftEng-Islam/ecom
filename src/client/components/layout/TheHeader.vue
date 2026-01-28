@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useRouter } from 'vue-router';
-import { getAuth, signOut, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import { getAuth, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import axios from 'axios';
-import { type User } from "firebase/auth";
 import TheNavbar from './TheNavbar.vue';
-import { useCartStore } from '@client/store/cart.ts';
+import { useAuthStore } from '@client/modules/auth/auth.store';
+import { useCartStore } from '@client/store/cart';
 import type { IProduct } from "@shared/types/index.d.ts";
 
 /**
@@ -14,15 +14,19 @@ import type { IProduct } from "@shared/types/index.d.ts";
  * Follows Rules.md: Pug template, Sass styles, Glassmorphism design.
  */
 
-const props = defineProps<{
-	user: User | null;
-}>();
-
-const router = useRouter();
-const isLoggedIn = props.user;
-const avatarUrl = ref("");
-const userName = ref("");
+const authStore = useAuthStore();
 const cartStore = useCartStore();
+const router = useRouter();
+
+const isLoggedIn = computed(() => authStore.isFirebaseAuthenticated);
+const avatarUrl = computed(() => authStore.user?.avatarUrl || authStore.firebaseUser?.photoURL || "");
+const userName = computed(() => authStore.user?.name || authStore.firebaseUser?.displayName || authStore.firebaseUser?.email?.split('@')[0] || "");
+
+const toggleUserMenu = (e: Event) => {
+	e.stopPropagation();
+	isUserMenuOpen.value = !isUserMenuOpen.value;
+};
+
 const searchQuery = ref('');
 const suggestions = ref<IProduct[]>([]);
 const isMenuOpen = ref(false);
@@ -89,9 +93,8 @@ const closeMenus = (e: MouseEvent) => {
 };
 
 const logout = async () => {
-	const auth = getAuth();
 	try {
-		await signOut(auth);
+		await authStore.logout();
 		isUserMenuOpen.value = false;
 		router.push('/');
 	} catch (error) {
@@ -190,7 +193,7 @@ header(:class="['fixed top-0 left-0 right-0 z-50 transition-all duration-300 bor
 
 				//- Auth/User Menu
 				div(class="relative user-menu")
-					button(@click.stop="isUserMenuOpen = !isUserMenuOpen" class="flex items-center p-0.5 rounded-full border-2 border-transparent hover:border-orange-500/50 transition-all duration-300")
+					button(@click="toggleUserMenu" class="flex items-center p-0.5 rounded-full border-2 border-transparent hover:border-orange-500/50 transition-all duration-300")
 						div(v-if="isLoggedIn" class="user-avatar h-8 w-8 rounded-full overflow-hidden border border-white/10")
 							img(:src="avatarUrl || 'https://ui-avatars.com/api/?name=' + userName" class="h-full w-full object-cover")
 						div(v-else class="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center text-zinc-400 hover:text-white transition-colors")
@@ -200,9 +203,9 @@ header(:class="['fixed top-0 left-0 right-0 z-50 transition-all duration-300 bor
 					//- User Dropdown
 					transition(enter-active-class="transition duration-200 ease-out" enter-from-class="translate-y-4 opacity-0 scale-95" enter-to-class="translate-y-0 opacity-100 scale-100" leave-active-class="transition duration-150 ease-in" leave-from-class="translate-y-0 opacity-100 scale-100" leave-to-class="translate-y-4 opacity-0 scale-95")
 						div(v-if="isUserMenuOpen" class="absolute right-0 mt-4 w-64 bg-zinc-900 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50 backdrop-blur-2xl")
-							div(v-if="isLoggedIn && props.user" class="px-5 py-4 border-b border-white/5 bg-white/5")
-								p(class="text-sm font-bold text-white truncate") {{ userName || props.user.email?.split('@')[0] }}
-								p(class="text-[10px] text-zinc-500 truncate mt-0.5") {{ props.user.email }}
+							div(v-if="isLoggedIn && authStore.firebaseUser" class="px-5 py-4 border-b border-white/5 bg-white/5")
+								p(class="text-sm font-bold text-white truncate") {{ userName || authStore.firebaseUser.email?.split('@')[0] }}
+								p(class="text-[10px] text-zinc-500 truncate mt-0.5") {{ authStore.firebaseUser.email }}
 
 							div(class="p-2")
 								template(v-if="isLoggedIn")
@@ -238,8 +241,8 @@ header(:class="['fixed top-0 left-0 right-0 z-50 transition-all duration-300 bor
 				div(v-if="isLoggedIn" class="flex items-center space-x-4")
 					img(:src="avatarUrl || 'https://ui-avatars.com/api/?name=' + userName" class="h-12 w-12 rounded-2xl border border-white/10")
 					div
-						p(class="text-white font-bold") {{ userName || props.user?.email?.split('@')[0] }}
-						p(class="text-xs text-zinc-500") {{ props.user?.email }}
+						p(class="text-white font-bold") {{ userName || authStore.firebaseUser?.email?.split('@')[0] }}
+						p(class="text-xs text-zinc-500") {{ authStore.firebaseUser?.email }}
 				div(v-else class="grid grid-cols-2 gap-4")
 					router-link(to="/login" class="flex items-center justify-center p-4 rounded-2xl bg-white/5 text-white font-bold text-center") Sign in
 					router-link(to="/register" class="flex items-center justify-center p-4 rounded-2xl bg-orange-500 text-white font-bold text-center shadow-lg shadow-orange-500/20") Sign up

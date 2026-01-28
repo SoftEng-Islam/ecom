@@ -1,15 +1,11 @@
 meta {
-  name: Get Users
+  name: Get All Users
   type: http
-  seq: 6
+  seq: 1
 }
 
 get {
   url: {{api}}/users
   body: none
   auth: inherit
-}
-
-settings {
-  encodeUrl: true
 }

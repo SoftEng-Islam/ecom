@@ -1,13 +1,17 @@
 meta {
-  name: Get Cart Products
+  name: Get Product
   type: http
   seq: 4
 }
 
 get {
-  url: {{api}}/cart/1/
+  url: {{api}}/products/:productId
   body: none
-  auth: inherit
+  auth: none
+}
+
+params:path {
+  productId:
 }
 
 settings {

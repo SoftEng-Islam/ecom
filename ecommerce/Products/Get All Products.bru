@@ -1,0 +1,23 @@
+meta {
+  name: Get All Products
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api}}/products
+  body: none
+  auth: none
+}
+
+params:query {
+  ~type:
+  ~name:
+  ~minPrice:
+  ~maxPrice:
+  ~rating:
+  ~ids:
+  ~sort:
+  ~limit:
+  ~skip:
+}

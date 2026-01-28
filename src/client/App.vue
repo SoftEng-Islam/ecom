@@ -16,7 +16,7 @@ onMounted(() => {
 
 <template lang="pug">
 div(class="min-h-screen bg-zinc-950 font-sans text-zinc-100 flex flex-col")
-  the-header(:user="authStore.user")
+  the-header
   main(class="flex flex-row w-full mx-auto p-6 flex-1")
     //- Left Sidebar
     //- the-left-sidebar

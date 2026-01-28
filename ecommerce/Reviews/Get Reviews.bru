@@ -1,0 +1,15 @@
+meta {
+  name: Get Reviews
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api}}/reviews/:productId
+  body: none
+  auth: none
+}
+
+params:path {
+  productId:
+}

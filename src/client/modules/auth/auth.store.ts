@@ -2,21 +2,27 @@ import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 import type { IUser } from '@shared/types/user';
 import { getAuth, onAuthStateChanged, signOut as firebaseSignOut, type User as FirebaseUser } from 'firebase/auth';
+import { useCartStore } from '@client/store/cart';
 
 export const useAuthStore = defineStore('auth', () => {
+    // Stores
+    const cartStore = useCartStore();
+
     // State
     const user = ref<IUser | null>(null);
     const firebaseUser = ref<FirebaseUser | null>(null);
     const token = ref<string | null>(null);
-    const loading = ref(false);
+    const loading = ref(true); // Start as true during init
     const error = ref<string | null>(null);
 
     // Computed
+    const isFirebaseAuthenticated = computed(() => !!firebaseUser.value);
     const isAuthenticated = computed(() => !!token.value && !!user.value);
 
     // Backend Sync
     const syncWithBackend = async (idToken: string) => {
         try {
+            loading.value = true;
             const response = await fetch('/api/auth/sync', {
                 method: 'POST',
                 headers: {
@@ -31,9 +37,11 @@ export const useAuthStore = defineStore('auth', () => {
 
             const data = await response.json();
             return data;
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error('Sync error:', err);
-            throw err;
+            throw err instanceof Error ? err : new Error(String(err));
+        } finally {
+            loading.value = false;
         }
     };
 
@@ -55,14 +63,18 @@ export const useAuthStore = defineStore('auth', () => {
                         // Persist
                         localStorage.setItem('token', idToken);
                         localStorage.setItem('user', JSON.stringify(data.user));
-                    } catch (err: any) {
+
+                        // Refresh Cart
+                        await cartStore.fetchCart();
+                    } catch (err: unknown) {
                         console.error('Auth Init Error:', err);
-                        error.value = 'Failed to authenticate';
-                        logout();
+                        error.value = err instanceof Error ? err.message : 'Failed to authenticate';
+                        await logout();
                     }
                 } else {
-                    logout();
+                    await logout();
                 }
+                loading.value = false;
                 resolve();
             });
         });
@@ -77,8 +89,13 @@ export const useAuthStore = defineStore('auth', () => {
             token.value = null;
             localStorage.removeItem('token');
             localStorage.removeItem('user');
+
+            // Clear Cart
+            cartStore.items = [];
         } catch (err) {
             console.error('Logout error:', err);
+        } finally {
+            loading.value = false;
         }
     };
 
@@ -89,6 +106,7 @@ export const useAuthStore = defineStore('auth', () => {
         loading,
         error,
         isAuthenticated,
+        isFirebaseAuthenticated,
         initAuth,
         logout
     };

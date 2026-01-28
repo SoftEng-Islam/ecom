@@ -15,6 +15,7 @@ export interface IUser {
 		zipCode: string;
 		country: string;
 	};
+	avatarUrl?: string;
 	cartItems: ICartItem[];
 }
 

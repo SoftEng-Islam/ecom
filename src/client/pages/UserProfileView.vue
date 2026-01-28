@@ -10,6 +10,7 @@ const orders = ref<any[]>([]);
 const loading = ref(true);
 
 const user = computed(() => authStore.user);
+const firebaseUser = computed(() => authStore.firebaseUser);
 
 async function fetchOrders() {
 	if (!authStore.token) return;
@@ -55,7 +56,7 @@ div(class="max-w-6xl mx-auto px-4 py-12")
 			div(class="bg-zinc-900/50 border border-white/5 rounded-3xl p-8 backdrop-blur-sm sticky top-8")
 				div(class="flex flex-col items-center text-center")
 					img(:src="'https://api.dicebear.com/7.x/identicon/svg?seed=' + user?.email" class="w-24 h-24 rounded-full border-4 border-orange-400/30 mb-4 shadow-xl")
-					h2(class="text-2xl font-bold text-white") {{ user?.name }}
+					h2(class="text-2xl font-bold text-white") {{ firebaseUser?.displayName || user?.name }}
 					p(class="text-zinc-400 text-sm mb-6") {{ user?.email }}
 
 					div(class="w-full space-y-4 pt-6 border-t border-white/5")
@@ -101,7 +102,7 @@ div(class="max-w-6xl mx-auto px-4 py-12")
 
 						div(class="space-y-4")
 							div(v-for="item in order.items" :key="item.productId" class="flex items-center gap-4 bg-zinc-950/30 p-3 rounded-xl border border-white/5")
-								img(:src="item.imageUrl" class="w-12 h-12 rounded-lg object-cover flex-shrink-0")
+								img(:src="item.imageUrl" class="w-12 h-12 rounded-lg object-cover shrink-0")
 								div(class="flex-1 min-w-0")
 									p(class="text-sm font-medium text-white truncate") {{ item.name }}
 									p(class="text-xs text-zinc-500") Qty: {{ item.quantity }}

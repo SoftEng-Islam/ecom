@@ -1,5 +1,6 @@
 import { Users } from "../models/users.model.ts";
 import { Products } from "../models/products.model.ts";
+import type { ICartItem } from "../types/user.ts";
 
 export const getCartItems = async (userId: string) => {
 	const user = await Users.findOne({
@@ -12,8 +13,13 @@ export const getCartItems = async (userId: string) => {
 		if (typeof item === 'string') {
 			return { productId: item, quantity: 1 };
 		}
-		return item;
-	});
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const itemObj = item as any;
+		if (itemObj && typeof itemObj === 'object' && typeof itemObj.productId === 'string') {
+			return itemObj as unknown as ICartItem;
+		}
+		return null;
+	}).filter((item): item is ICartItem => item !== null);
 
 	// Fetch full product details for each item in the cart
 	const productIds = normalizedItems.map(item => item.productId);
@@ -39,14 +45,29 @@ export const addToCart = async (userId: string, productId: string, quantity: num
 	// Ensure cartItems is initialized
 	if (!user.cartItems) user.cartItems = [];
 
-	// NORMALIZE: Convert any legacy string items to objects before processing
+	// NORMALIZE: Convert any legacy string items or incomplete objects to valid items
 	// This prevents Mongoose validation errors ("productId is required")
-	user.cartItems = user.cartItems.map(item => {
+	const normalizedItems = user.cartItems.map(item => {
+		// Handle legacy string items
 		if (typeof item === 'string') {
 			return { productId: item, quantity: 1, addedAt: new Date() };
 		}
-		return item;
-	});
+		// Handle objects (could be Mongoose subdocuments or plain objects)
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const itemObj = item as any;
+		if (itemObj && typeof itemObj === 'object') {
+			// If it's an object but lacks productId, it might be a corrupted subdocument
+			if (typeof itemObj.productId !== 'string') {
+				console.warn(`Found invalid cart item for user ${userId}:`, itemObj);
+				return null;
+			}
+			return itemObj as unknown as ICartItem;
+		}
+		return null;
+	}).filter((item): item is ICartItem => item !== null);
+
+	// Re-assign to the user document
+	user.cartItems = normalizedItems;
 
 	// Check if item already exists in cart
 	const itemIndex = user.cartItems.findIndex(item => item.productId === productId);
@@ -66,8 +87,10 @@ export const addToCart = async (userId: string, productId: string, quantity: num
 	try {
 		await user.save();
 		return getCartItems(userId);
-	} catch (error: any) {
-		console.error("Mongoose Save Error:", error.errors || error);
+	} catch (error) {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		const mongooseError = error as any;
+		console.error("Mongoose Save Error:", mongooseError.errors || mongooseError);
 		throw error;
 	}
 };

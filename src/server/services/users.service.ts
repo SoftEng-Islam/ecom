@@ -10,7 +10,7 @@ export const findOrCreateUser = async (firebaseUser: {
     displayName?: string | null;
 }) => {
     // Try to find user by firebaseUid
-    let user = await Users.findOne({ firebaseUid: firebaseUser.uid }).lean();
+    let user = await Users.findOne({ firebaseUid: firebaseUser.uid });
 
     // If user doesn't exist, create a new one
     if (!user && firebaseUser.email) {
@@ -21,9 +21,13 @@ export const findOrCreateUser = async (firebaseUser: {
             name: firebaseUser.displayName || firebaseUser.email.split('@')[0],
             cartItems: [], // Initialize empty cart
         });
+    } else if (user && firebaseUser.displayName && user.name !== firebaseUser.displayName) {
+        // If user exists but name has changed in Firebase, update it
+        user.name = firebaseUser.displayName;
+        await user.save();
     }
 
-    return user;
+    return user ? user.toObject() : null;
 };
 
 export const getUsers = async () => {

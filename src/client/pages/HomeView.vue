@@ -2,8 +2,8 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useMotion } from '@vueuse/motion';
-
-const trendingProducts = ref<any[]>([]);
+import type { IProduct } from '@shared/types';
+const trendingProducts = ref<IProduct[]>([]);
 const loading = ref(true);
 const limit: number = 10;
 const heroImage = ref("");
@@ -64,7 +64,7 @@ div(class="space-y-24 pb-24")
     div(class="absolute inset-0 flex flex-col items-center justify-center text-center px-6")
       h1(v-motion-slide-visible-bottom class="text-6xl md:text-8xl font-bold text-white mb-6 font-outfit tracking-tight")
         | Future of
-        span(class="text-orange-500") Shopping
+        span(class="text-orange-500")  Shopping
       p(v-motion-slide-visible-bottom :delay="200" class="text-xl text-zinc-300 max-w-2xl mb-10 leading-relaxed")
         | Discover curated collections, cutting-edge technology, and timeless style. Experience the pinnacle of e-commerce.
       div(v-motion-slide-visible-bottom :delay="400" class="flex gap-4")

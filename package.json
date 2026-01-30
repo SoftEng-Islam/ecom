@@ -49,6 +49,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@tsconfig/node22": "^22.0.5",
     "@types/body-parser": "^1.19.6",
+    "@types/chalk": "^2.2.4",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.5",
     "@types/jsonwebtoken": "^9.0.10",

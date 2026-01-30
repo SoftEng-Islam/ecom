@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { useAuthStore } from "./modules/auth/auth.store";
-import TheHeader from "./components/layout/TheHeader.vue";
-import TheLeftSidebar from "./components/layout/TheLeftSidebar.vue";
-import TheRightSidebar from "./components/layout/TheRightSidebar.vue";
-import TheFooter from "./components/layout/TheFooter.vue";
+// import { useAuthStore } from "./modules/auth/auth.store";
+// import TheHeader from "./components/layout/TheHeader.vue";
+// import TheLeftSidebar from "./components/layout/TheLeftSidebar.vue";
+// import TheRightSidebar from "./components/layout/TheRightSidebar.vue";
+// import TheFooter from "./components/layout/TheFooter.vue";
 
-const authStore = useAuthStore();
+// const authStore = useAuthStore();
 
 // Initialize auth state
-onMounted(() => {
-  authStore.initAuth();
-});
+// onMounted(() => {
+// authStore.initAuth();
+// });
 </script>
 
 <template lang="pug">
 div(class="min-h-screen bg-zinc-950 font-sans text-zinc-100 flex flex-col")
-  the-header
-  main(class="flex flex-row w-full mx-auto p-6 flex-1")
+  h1 Hello
+//-  the-header
+  //- main(class="flex flex-row w-full mx-auto p-6 flex-1")
     //- Left Sidebar
     //- the-left-sidebar
 

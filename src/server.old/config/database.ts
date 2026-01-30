@@ -17,11 +17,9 @@ export const connectDB = async () => {
 		// console.log(users);
 	} catch (error) {
 		console.log(`Database Connection Error: ${error}`);
-
-		// ?
-		// throw error;
+		throw error;
 
 		// Always crash the app if DB connection fails (fail-fast).
-		process.exit(1);
+		// process.exit(1);
 	}
 };
